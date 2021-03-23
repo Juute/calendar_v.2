@@ -8,9 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Сalendar</RootNamespace>
     <AssemblyName>Сalendar</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,6 +32,10 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icons8-календарь-48.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -43,14 +49,83 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="CalendarOnDay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="CalendarOnDay.Designer.cs">
+      <DependentUpon>CalendarOnDay.cs</DependentUpon>
     </Compile>
+    <Compile Include="CalendarOnMonth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalendarOnMonth.Designer.cs">
+      <DependentUpon>CalendarOnMonth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalendarOnYear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalendarOnYear.Designer.cs">
+      <DependentUpon>CalendarOnYear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OnDay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OnDay.Designer.cs">
+      <DependentUpon>OnDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Day.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Day.Designer.cs">
+      <DependentUpon>Day.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Month.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Month.Designer.cs">
+      <DependentUpon>Month.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateCalendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateCalendar.Designer.cs">
+      <DependentUpon>CreateCalendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateCalendarForPrint.cs" />
+    <Compile Include="Note.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Note.Designer.cs">
+      <DependentUpon>Note.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatternCalendar.cs" />
+    <Compile Include="PatternMouth.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CalendarOnDay.resx">
+      <DependentUpon>CalendarOnDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalendarOnMonth.resx">
+      <DependentUpon>CalendarOnMonth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalendarOnYear.resx">
+      <DependentUpon>CalendarOnYear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\OnDay.resx">
+      <DependentUpon>OnDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Day.resx">
+      <DependentUpon>Day.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Month.resx">
+      <DependentUpon>Month.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateCalendar.resx">
+      <DependentUpon>CreateCalendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Note.resx">
+      <DependentUpon>Note.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -59,7 +134,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -69,6 +146,21 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisscc0-post-it-note-paper-adhesive-material-drawing-pin-yellow-sticky-notes-5b57342b65d277.6934614615324416434171.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-цветовая-палитра-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-мусор-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icons8-календарь-48.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
